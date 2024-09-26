@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <link rel="icon" type="image/png" href="/bx/bxs-registered.svg" />
+  <title>ResQ | Rescuer</title>
+  <link rel="stylesheet" href="rescuer.css" />
+</head>
+
+
+<!---------------------Side-Bar----------------------->
+
+<body>
+  <section id="sidebar">
+    <a href="#" class="logo">
+      <i class='bx bxs-registered' type="image/png" href="/bx/bxs-registered.svg"></i>
+      <span class="logo-text">RescueHub</span>
+    </a>
+    <ul class="side-menu top">
+      <li class="active" onclick="getAnnouncements()">
+        <a href="#">
+          <i class='bx bxs-dashboard'></i>
+          <span class="text">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="#storage-content" data-section="storage">
+          <i class='bx bx-store'></i>
+          <span class="text">Storage</span>
+        </a>
+      </li>
+      <li>
+        <a href="#map-content" data-section="map">
+          <i class='bx bx-map'></i>
+          <span class="text">Map</span>
+        </a>
+      </li>
+      <li>
+        <a href="#message-content" data-section="message">
+          <i class='bx bx-message'></i>
+          <span class="text">Message</span>
+        </a>
+      </li>
+    </ul>
+    <ul class="side-menu">
+      <li>
+        <button class="logout" type="button" onclick="logoutUser()">
+          <i class='bx bx-log-out'></i>
+          <span class="text">Logout</span>
+        </button>
+      </li>
+    </ul>
+
+  </section>
+
+  <!---------------------Navigation----------------------->
+  <section id="content">
+    <nav>
+      <i class='bx bx-menu'></i>
+      <a href="#" class="nav-link"></a>
+
+      <a href="#message-content" class="notification" id="notification-btn">
+        <i class="bx bx-bell"></i>
+        <span class="num" id="notification-count">0</span>
+      </a>
+      <a href="#" class="rescue-profile" id="profile-btn">
+        <i class="bx bx-user"></i>
+      </a>
+    </nav>
+
+      <!-- Profile sidebar -->
+    <div id="profile-sidebar" class="profile-sidebar">
+      <div class="profile-content">
+          <h3 id="rescuer-name">Rescuer Name</h3>
+          <p id="rescuer-info">Additional info here...</p>
+          <!-- Additional dynamic info can be added here -->
+      </div>
+    </div>
+
+
+    <!-------------------Main Content------------------------->
+    <main id="dashboard-content" class="active">
+      <div class="head-title">
+        <div class="left">
+          <h1>Dashboard</h1>
+          <ul class="breadcrumb">
+            <li>
+              <a href="#">Dashboard</a>
+            </li>
+            <li><i class='bx bx-chevron-right'></i></li>
+            <li>
+              <a class="active" href="#">Home</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <ul class="box-info">
+        <li>
+          <i class='bx bxs-calendar-check'></i>
+          <span class="text">
+            <h3 id="tasksCount">0</h3>
+            <p>New Task</p>
+          </span>
+        </li>
+        <li>
+          <i class='bx bxs-notification'></i>
+          <span class="text">
+            <h3 id="announcementsCount"></h3>
+            <p>New Announcment</p>
+          </span>
+        </li>
+      </ul>
+      <div class="table-data">
+        <div class="announcments">
+          <div class="head">
+            <h3>Recent Announcments</h3>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>DateTime</th>
+                <th>Need</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="announcementsTableBody">
+              <!-- Announcements will be dynamically added here -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tasks">
+          <div class="head">
+            <h3>Tasks to Do</h3>
+          </div>
+          <ul class="task-list" id="taskList">
+            <!-- Tasks will be dynamically added here -->
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <main id="storage-content" class="content-section">
+      <div class="head-title">
+        <div class="left">
+          <h1>Storage</h1>
+          <ul class="breadcrumb">
+            <li>
+              <a href="#">Storage</a>
+            </li>
+            <li><i class='bx bx-chevron-right'></i></li>
+            <li>
+              <a class="active" href="#">Handle Storage</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="storage-options">
+        <button id="view-load-btn">Show Storage</button>
+        <button id="load-cargo-btn">Load Storage</button>
+        <button id="unload-cargo-btn">Take out Storage</button>
+        <button id="vehicle-inventory-btn">Vehicle Inventory</button>
+      </div>
+    
+      <div id="view-load-section" class="storage-section">
+        <div class="storage-container">
+          <div class="storage-box" id="pharmacy-box">
+            <h3>Pharmacy</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Quantity</th>
+                  <th>Storage</th>
+                </tr>
+              </thead>
+              <tbody id="pharmacy-table-body">
+                <!-- Pharmacy data will be dynamically loaded here -->
+              </tbody>
+            </table>
+          </div>
+          <div class="storage-box" id="housing-box">
+            <h3>Housing</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Quantity</th>
+                  <th>Storage</th>
+                </tr>
+              </thead>
+              <tbody id="housing-table-body">
+                <!-- Housing data will be dynamically loaded here -->
+              </tbody>
+            </table>
+          </div>
+          <div class="storage-box" id="consumable-box">
+            <h3>Consumables</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Quantity</th>
+                  <th>Storage</th>
+                </tr>
+              </thead>
+              <tbody id="consumable-table-body">
+                <!-- Consumables data will be dynamically loaded here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div id="vehicle-inventory-section" class="storage-box" style="display:none;">
+        <h2>Vehicle Inventory</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Product Item</th>
+              <th>Quantity</th>
+            </tr>
+          </thead>
+          <tbody id="vehicle-inventory-table-body">
+            <!-- Inventory items will be dynamically added here -->
+          </tbody>
+        </table>
+        <div class="inventory-actions">
+          <button id="request-btn" class="action-btn request-btn" style="display:none;">Request</button>
+          <button id="offer-btn" class="action-btn offer-btn" style="display:none;">Offer</button>
+        </div>
+      </div>
+  
+     
+
+
+    
+      <div id="load-cargo-section" class="storage-section">
+        <!-- Load Cargo content here -->
+      </div>
+    
+      <div id="unload-cargo-section" class="storage-section">
+        <!-- Unload Cargo content here -->
+      </div>
+    </main>
+    
+
+
+      <!--------------------------Map------------------------------->
+
+      <main id="map-content" class="content-section">
+        <div class="head-title">
+          <div class="left">
+            <h1>Map</h1>
+            <ul class="breadcrumb">
+              <li>
+                <a href="#">Map</a>
+              </li>
+              <li><i class='bx bx-chevron-right'></i></li>
+              <li>
+                <a class="active" href="#">View Map</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="res_map" style="height: 500px;"></div>
+      </main>
+
+      <main id="message-content" class="content-section">
+        <div class="head-title">
+          <div class="left">
+            <h1>Messages</h1>
+            <ul class="breadcrumb">
+              <li><a href="#">Messages</a></li>
+              <li><i class='bx bx-chevron-right'></i></li>
+              <li><a class="active" href="#">View Messages</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- Add message content here -->
+      </main>
+
+    </section>
+
+    <script src="javascript/rescuer.js"></script>
+   
+    
+  
+  </body>
+</html>

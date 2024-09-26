@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/bx/bxs-user-pin.svg" />
+  <title>ResQ | Citizen</title>
+  <link rel="stylesheet" href="citizen.css" />
+</head>
+
+
+<!---------------------Side-Bar----------------------->
+
+<body>
+  <section id="sidebar">
+    <a href="#" class="logo">
+      <i class='bx bxs-registered' type="image/png" href="/bx/bxs-user-pin.svg"></i>
+      <span class="logo-text">CitizenHub</span>
+    </a>
+    <ul class="side-menu top">
+      <li class="active" onclick="getAnnouncements()">
+        <a href="#">
+          <i class='bx bxs-dashboard'></i>
+          <span class="text">Dashboard</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="user_map.html">
+          <i class='bx bx-map'></i>
+          <span class="text">Map</span>
+        </a>
+      </li>
+      <li>
+        <a href="#team-content" data-section="message">
+          <i class='bx bxs-group'></i>
+          <span class="text">Make a Donation</span>
+        </a>
+      </li>
+      <li>
+        <a href="#team-content" data-section="team">
+          <i class='bx bxs-group'></i>
+          <span class="text">Request a Donation</span>
+        </a>
+      </li>
+    </ul>
+    <ul class="side-menu">
+      <li>
+        <button class="logout" type="button" onclick="logoutUser()">
+          <i class='bx bx-log-out'></i>
+          <span class="text">Logout</span>
+        </button>
+      </li>
+    </ul>
+
+  </section>
+
+  <!---------------------Navigation----------------------->
+  <section id="content">
+    <nav>
+      <i class='bx bx-menu'></i>
+      <a href="#" class="nav-link"></a>
+
+      <a href="#message-content" class="notification" id="notification-btn">
+        <i class="bx bx-bell"></i>
+        <span class="num" id="notification-count">0</span>
+      </a>
+      <a href="#" class="rescue-profile" id="profile-btn">
+        <i class="bx bx-user"></i>
+      </a>
+    </nav>
+
+      <!-- Profile sidebar -->
+    <div id="profile-sidebar" class="profile-sidebar">
+      <div class="profile-content">
+          <h3 id="rescuer-name">Rescuer Name</h3>
+          <p id="rescuer-info">Additional info here...</p>
+          <!-- Additional dynamic info can be added here -->
+      </div>
+    </div>
+    
+
+
+    <!-------------------Main Content------------------------->
+    <main id="dashboard-content" class="active">
+      <div class="head-title">
+        <div class="left">
+          <h1>Dashboard</h1>
+          <ul class="breadcrumb">
+            <li>
+              <a href="#">Dashboard</a>
+            </li>
+            <li><i class='bx bx-chevron-right'></i></li>
+            <li>
+              <a class="active" href="#">Home</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      
+      <div class="table-data">
+        <div class="announcments">
+          <div class="head">
+            <h3>Recent Donations</h3>
+
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Date-Time</th>
+                <th>Status</th>
+                <th>Request ID</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <i class="bx bx-user"></i>
+                  <p>Haris Kikidis</p>
+                </td>
+                <td>12/31/23-22:30:12</td>
+                <td><span class="status completed">Completed</span></td>  <!-- ola auta prepei na ginontai dunamika me js apo tin vash-->
+                <td>10k</td>
+         
+              </tr>
+              <tr>
+                <td>
+                <i class="bx bx-user"></i>
+                <p>test1</p>
+              </td>
+              <td>12/31/asdz</td>
+              <td><span class="status completed">Completed</span></td>  <!-- ola auta prepei na ginontai dunamika me js apo tin vash-->
+              <td>123</td></tr>
+            
+            </tbody>
+          </table>
+        </div>
+
+      <div class="table-data">
+        <div class="announcments">
+          <div class="head">
+            <h3>Recent Offers</h3>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Date-Time</th>
+                <th>Status</th>
+                <th>Offer ID</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <i class="bx bx-user"></i>
+                  <p>Haris Kikidis</p>
+                </td>
+                <td>12/31/23-22:30:12</td>
+                <td><span class="status completed">Completed</span></td>  <!-- ola auta prepei na ginontai dunamika me js apo tin vash-->
+                <td>10k</td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="bx bx-user"></i>
+                  <p>Haris AA</p>
+                </td>
+                <td>12/31/23-22:30:12</td>
+                <td><span class="status completed">Completed</span></td>  <!-- ola auta prepei na ginontai dunamika me js apo tin vash-->
+                <td>10k</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <script src="javascript/citizen.js"></script>
+
+  </body>
+</html>

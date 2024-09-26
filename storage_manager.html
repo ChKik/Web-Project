@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/bx/bxs-registered.svg" />
+  <title>ResQ | Admin</title>
+  <link rel="stylesheet" href="admin.css" />  <!-- similar structure to the rescuer page  -->
+</head>
+
+
+<!---------------------Side-Bar----------------------->
+
+<body>
+    <section id="sidebar">
+      <a href="#" class="logo">
+        <i class='bx bxs-registered' type="image/png" href="/bx/bxs-registered.svg"></i>
+        <span class="logo-text">ResQ Admin</span>
+      </a>
+      <ul class="side-menu top">
+        <li>
+          <a href="admin.html">
+            <i class='bx bxs-dashboard'></i>
+            <span class="text">Dashboard</span>
+          </a>
+        </li>
+        <li class="active">
+          <a href="storage_manager.html">
+            <i class='bx bx-store'></i>
+            <span class="text">Hub Management</span>
+          </a>
+        </li>        
+        <li>
+          <a href="admin_map.html">
+            <i class='bx bx-map'></i>
+            <span class="text">Map</span>
+          </a>
+        </li>
+        <li>
+          <a href="warehouse_status.html">   <!-- edw apla show storage -->
+            <i class='bx bxs-factory'></i>
+            <span class="text">Warehouse Status</span>
+          </a>
+        </li>
+        <li>
+          <a href="admin_stats.html">
+            <i class='bx bx-bar-chart-alt-2'></i>
+            <span class="text">Statistics</span>
+          </a>
+        </li>
+        <li>
+            <a href="new_resquer.html"> 
+                <i class='bx bx-user-plus'></i>
+              <span class="text">Add ResQuer</span>
+            </a>
+          </li>
+      </ul>
+      <ul class="side-menu">
+        <li>
+          <button class="logout" type="button" onclick="logoutUser()">
+            <i class='bx bx-log-out'></i>
+            <span class="text">Logout</span>
+          </button>
+        </li>
+      </ul>
+
+
+    </section>
+  
+    <!---------------------Navigation----------------------->
+    <section id="content">
+      <nav>
+        <i class='bx bx-menu'></i>
+        <a href="#" class="nav-link"></a>
+  
+        <a href="#message-content" class="notification" id="notification-btn">
+          <i class="bx bx-bell"></i>
+          <span class="num" id="notification-count">0</span>
+        </a>
+        <a href="#admin-profile" class="rescue-profile" id="profile-btn">  <!-- idio button me resquer -->
+          <i class="bx bx-user"></i>
+        </a>
+      </nav>
+  
+        <!-- Profile sidebar -->
+      <div id="profile-sidebar" class="profile-sidebar">
+        <div class="profile-content">
+            <h3 id="rescuer-name">Admin Name</h3>
+            <p id="rescuer-info">Additional info here...</p>
+            <!-- Additional dynamic info can be added here -->
+        </div>
+      </div>
+
+        <!---------------------- MAIN --------------------------------->
+
+       <main id="storage-manager" class="active">
+        <div class="head-title">
+          <div class="left">
+            <h1>Storage Manager</h1>
+            <ul class="breadcrumb"> 
+              <li>
+                <a href="#">Storage Manager</a>
+              </li>
+              <li><i class='bx bx-chevron-right'></i></li>
+              <li>
+                <a class="active" href="#">Options</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- <div class="warehouse-content" class="content-section"> gia to warehouse status
+            <div class="head-title">
+              <div class="left">
+                <h1>Warehouse Status</h1>
+                <ul class="breadcrumb">
+                  <li><a href="#">Warehouse</a></li>
+                  <li><i class='bx bx-chevron-right'></i></li>
+                  <li><a class="active" href="#">Status</a></li>
+                </ul>
+              </div>
+            </div> -->
+    <!-- 
+    <main id="storage-manager-content" class="content-section">
+      <div class="head-title">
+        <div class="left">
+          <h1>Warehouse Management</h1>
+        </div>
+      </div> -->
+
+      <div class="storage-options">
+        <button id="load-from-url-btn">Load from URL</button>
+        <!-- <input type="file" id="file-input" accept=".json" /> -->
+        <button id="upload-json-btn">Upload JSON</button>
+      </div>
+
+      <div id="category-management">
+        <h2>Manage Categories</h2>
+        <form id="category-form">
+          <input type="text" id="category-name" placeholder="Category Name" required />
+          <button type="submit">Add Category</button>
+        </form>
+       <!-- <button id="edit-warehouse-btn">Edit Warehouse</button> -->
+        <ul id="category-list">
+          <!-- Categories will be dynamically populated here with AJAX from Database-->
+        </ul>
+      </div>
+
+      <div id="item-management">
+        <h2>Manage Items</h2>
+        <form id="item-form">
+          <label for="item-category">Choose a category:</label>
+          <select class="form-select category" aria-label="Default select">
+            <!-- Categories will be dynamically populated here -->
+             <option selected>Choose a category</option>
+          </select>
+          <input type="text" id="item-name" placeholder="Item Name" required />
+          <textarea id="item-description" placeholder="Item Description" required></textarea>
+          <input type="number" id="item-quantity" placeholder="Quantity" required />
+          <button type="submit">Add Item</button>
+        </form>
+        <ul id="item-list">
+          <!-- Items will be dynamically populated here -->
+        </ul>
+        </div>
+
+        <!-- Modal for Showing Products to be Inserted -->
+        <div id="products-insert-modal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Products to be Inserted</h2>
+            <ul class="product-list" id="product-list-modal">
+              <!-- List of products will be dynamically inserted here -->
+            </ul>
+            <div class="modal-buttons">
+              <button id="insert-to-db-btn">Insert to Database</button>
+              <button class="cancel" id="cancel-insert-btn">Cancel Insert</button>
+            </div>
+          </div>
+        </div>
+
+    <!-- Modal for Editing Warehouse -->
+    <div id="edit-warehouse-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Edit Warehouse Categories</h2>
+        <div id="edit-categories">
+          <!-- Categories will be dynamically populated here as buttons -->
+        </div>
+        <div id="edit-items">
+          <h3>Items in Selected Category</h3>
+          <ul id="item-list-modal">
+            <!-- Items will be dynamically populated here when a category is selected -->
+          </ul>
+        </div>
+        <button id="save-changes-btn">Save Changes</button>
+      </div>
+    </div>
+
+  <!-- Trigger to open the modal -->
+  <button id="open-modal-btn">Edit Warehouse Categories</button>
+
+
+    </main>
+
+           <!--------------------------Map------------------------------->
+  
+           <main id="map-content" class="content-section">
+            <div class="head-title">
+              <div class="left">
+                <h1>Map</h1>
+                <ul class="breadcrumb">
+                  <!-- <li>
+                    <a href="admin_map.html">Map</a>
+                  </li> -->
+                  <li><i class='bx bx-chevron-right'></i></li>
+                  <li>
+                    <a class="active" href="admin_map.html">View Map</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </main>
+    
+          <main id="message-content" class="content-section">
+            <div class="head-title">
+              <div class="left">
+                <h1>Messages</h1>
+                <ul class="breadcrumb">
+                  <li><a href="#">Messages</a></li>
+                  <li><i class='bx bx-chevron-right'></i></li>
+                  <li><a class="active" href="#">View Messages</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- Add message content here -->
+          </main>
+          
+          <main id="team-content" class="content-section">
+            <div class="head-title">
+              <div class="left">
+                <h1>Team</h1>
+                <ul class="breadcrumb">
+                  <li><a href="#">Team</a></li>
+                  <li><i class='bx bx-chevron-right'></i></li>
+                  <li><a class="active" href="#">View Team</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- Add team content here -->
+          </main>
+        </section>
+    
+        <script src="javascript/admin.js"></script>
+        <script src="javascript/admin_map.js"></script>
+        <script src="javascript/hub_management.js"></script>
+        <script src="javascript/new_resquer.js"></script>
+
+        
+      </body>
+    </html> 

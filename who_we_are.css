@@ -1,0 +1,390 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.bgWhoWeAre {
+  width: 100%;
+  height: 100vh; 
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-image: url(/images/pic4.jpg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 110vh;
+  background: #001e47;
+  flex: 1;
+}
+
+.nav{
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    background: linear-gradient(rgba(39,39,39, 0.6), transparent);
+    z-index: 100;
+}
+
+.nav-logo{
+  border: 0;
+  color:transparent;
+  font-size:0;
+  line-height: 0;
+  text-shadow: none;
+  background: no repeat left;
+  display:block;
+  height:5px;
+  
+}
+
+.logo{
+  display: flex;
+  white-space: nowrap;
+  width: 180px;
+  height: 190px;
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+.nav-menu ul{
+    display: flex;
+    margin-right:5px;
+}
+
+.nav-menu ul li{
+    display: inline-block;
+    white-space: nowrap;
+    list-style-type: none;
+}
+
+.nav-menu ul li .link{
+    text-decoration: none;
+    font-weight: 520;
+    color: #fff;
+    padding-bottom: 5px;
+    margin: 0 25px;
+    
+}
+
+.nav--hidden {
+  transform: translateY(-250%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-menu-btn{
+  display: none;
+}
+
+.social-media{
+  display: flex;
+  justify-self: space-around;
+  cursor: pointer;
+  margin-left: 90px;
+}
+
+.bxl-facebook-circle{
+  margin-right: 15px;
+  color:#015cb1;
+
+}
+
+.bxl-facebook-circle:hover{
+  color:white;
+}
+
+.bxl-twitter{
+  margin-right: 15px;
+  color: #185690;
+}
+
+.bxl-twitter:hover{
+  color:white;
+}
+
+.bxl-instagram{
+  margin-right: 15px;
+  color: rgb(132, 23, 132);
+}
+
+.bxl-instagram:hover{
+  color:white;
+}
+
+
+.link:hover, .active{
+    border-bottom: 2px solid #bb5618;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+
+}
+
+
+
+.main-text {
+  max-width: 800px;
+  margin-top: 120px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.main-text h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.main-text h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.main-text p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.main-text .subtitle {
+  color: #bb5618;
+}
+
+.main-text .message {
+  font-weight: 600;
+  color: #bb5618;
+  margin-top: 20px;
+}
+
+
+.ContactUsBtn,
+.DonateBtn {
+  display: block;
+  margin-top: 20px;
+  padding: 15px 30px;
+  background-color: #bb5618;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.ContactUsBtn:hover,
+.DonateBtn:hover {
+  background-color: #955011;
+}
+
+.footer {
+  background-color: #003366;
+  color: #fff;
+  padding: 50px;
+  text-align: center;
+  
+}
+
+.social-media {
+  width: 50px;
+  height: 50px;
+  margin-right:50 ;
+}
+
+.contact-info {
+  margin-top: 20px;
+}
+
+.phone, .email {
+  margin: 5px 0;
+}
+
+.contact-btn {
+  padding: 10px 20px;
+  background-color: #bb5618;
+  margin-top: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.contact-btn:hover {
+  background-color: #e91b1b;
+}
+
+.footer-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.footer-btn {
+  padding: 10px 20px;
+  margin-right: 20px; 
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #fff; 
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.footer-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2); 
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  .login-facilities li {
+      width: 100%;
+      margin-bottom: auto;
+
+  }
+
+  .serve,
+  .work {
+      float: none; 
+      width: 100%; 
+  }
+
+  .respond,
+  .resettle {
+      float: none; 
+      width: 100%; 
+  }
+}
+
+@media only screen and (max-width: 786px) {
+  .social-media,
+  .nav-button {
+    display: none;
+  }
+
+  .nav-menu.responsive {
+    top: 100px;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: -800px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    background: #bb5618;
+    width: 100%;
+    height: 80vh;
+    backdrop-filter: blur(20px);
+    transition: .3s;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    text-align: center;
+    margin: 20px 0; 
+  }
+
+  .nav-menu li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .nav-menu li:hover {
+    background-color: rgba(255, 255, 255, 0.2); 
+  }
+
+  .nav-menu li:last-child {
+    border-bottom: none; 
+  }
+
+  .nav-menu-btn {
+    display: block;
+  }
+
+  .nav-menu-btn i {
+    font-size: 25px;
+    color: #fff;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .3s;
+  }
+
+  .nav-menu-btn i:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .logo {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+    .wrapper{
+        min-height: 100vh;
+    }
+    .form-box{
+        width: 100%;
+        height: 500px;
+    }
+    .register-container, .login-container{
+        width: 100%;
+        padding: 0 20px;
+    }
+    .register-container .two-forms{
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .logo {
+     display: none;
+    }
+
+    .nav-menu {
+      position: absolute;
+      top: -800px;
+      display: flex;
+      flex-direction: column; 
+      align-items: center; 
+      background: #bb5618;
+      width: 100%;
+      height: 70vh;
+      backdrop-filter: blur(20px);
+      transition: .3s;
+    }
+}
+
+

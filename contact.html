@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="/bx/bxs-registered.svg"/>
+    <title>ResQ | Contact Us</title>
+    <link rel="stylesheet" href="contact.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <nav class="nav">
+          <div class="nav-logo">
+           <a href="/">Home Page</a>
+           <img class="logo" src="images/logo.png" alt="rescue national team">  
+          </div>
+          <div class="nav-menu" id="navMenu">
+            <ul>
+              <li><a href="login.html" class="link">Home</a></li>
+              <li><a href="who_we_are.html" class="link">Who we are</a></li>
+              <li><a href="what_we_do.html" class="link">What we do</a></li>
+              <li><a href="how_to_help.html" class="link">How to Help</a></li>
+              <li><a href="contact.html" class="link">Contact us</a></li>
+            </ul>
+          </div>
+  
+          <div class="social-media">
+           <a href="https://www.facebook.com/?locale=el_GR"> <i class="bx bxl-facebook-circle"></i></a>
+           <a href="https://www.instagram.com/"> <i class="bx bxl-instagram"></i></a>
+           <a href="https://twitter.com/?lang=el"> <i class="bx bxl-twitter"></i></a>
+          </div>
+
+          <div class="nav-menu-btn">
+              <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+          </div>
+      </nav>
+
+
+      <div class="main-text">
+        <h1 class="title">Contact Us</h1>
+    
+        <h2 class="subtitle">General Inquiries</h2>
+        <p>
+            For general inquiries or information about our organization, please feel free to contact us 
+            through the following channels. We're here to help and answer your questions.
+        </p>
+    
+        <h2 class="subtitle">Emergency Hotline</h2>
+        <p>
+            If you are in need of urgent assistance or are facing an emergency situation, please call 
+            our emergency hotline. Our team is available 24/7 to respond to critical situations.
+        </p>
+    
+        <h2 class="subtitle">Email</h2>
+        <p>
+            You can also reach out to us via email. Send your messages or inquiries to 
+            <a href="mailto:info@rescuenationalteam.org">resqnpo@gmail.com</a>.
+        </p>
+    
+        <h2 class="subtitle">Visit Us</h2>
+        <p>
+            Our headquarters are located at Volos. Feel free to visit us during our office hours.
+        </p>
+    
+        <p class="message">We appreciate your communication and are here to assist you!</p>
+    
+        <button class="DonateBtn" onclick="donate()">Donate</button>
+      </div>
+    </div>
+
+    <div class="map-container">
+      <h2 class="map-title"> Our Location</h2>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d98707.17844457923!2d22.865091501981965!3d39.365309235129544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a76c60e1af6cf1%3A0x5d6e8e390219aae2!2zzpLPjM67zr_Pgg!5e0!3m2!1sel!2sgr!4v1702374640007!5m2!1sel!2sgr" 
+      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+
+
+    <div class="bgHowToHelp"></div>
+
+    <footer class="footer">
+      <div class="social-media-footer">
+        <a href="https://www.facebook.com/profile.php?id=61554192970354&mibextid=2JQ9oc"> <i class="bx bxl-facebook-circle"></i></a>
+        <a href="https://instagram.com/resq_npo?igshid=OGQ5ZDc2ODk2ZA=="> <i class="bx bxl-instagram"></i></a>
+        <a href="https://x.com/resq_npo?t=2AfRIccQ9Qyba6CLwXB1aw&s=09"> <i class="bx bxl-twitter"></i></a>
+      </div>
+    
+      <div class="contact-info">
+        <p class="phone">Phone: +1 (123) 456-7890</p>
+        <p class="email">Email: resqnpo@gmail.com</p>
+      </div>
+    
+      <button class="contact-btn" onclick="location.href='contact.html'">Contact Us</button>
+  
+      <div class="footer-buttons">
+        <button class="footer-btn" onclick="login()">Sign In</button>
+        <button class="footer-btn" onclick="register()">Sign Up</button>
+    </div>
+    </footer>
+
+    <script src="javascript/login.js"></script>
+    <script src="javascript/nav_sign.js"></script>
+    <script src="javascript/nav.js"></script>
+
+  </body>
+
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="/bx/bxs-registered.svg"/>
+    <title>National Rescue Team</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <nav class="nav">
+        <div class="nav-logo">
+          <a href="/">Home Page</a>
+          <img class="logo" src="images/logo.png" alt="rescue national team" />
+        </div>
+        <div class="nav-menu" id="navMenu">
+          <ul>
+            <li><a href="login.html" class="link">Home</a></li>
+            <li><a href="who_we_are.html" class="link">Who we are</a></li>
+            <li><a href="what_we_do.html" class="link">What we do</a></li>
+            <li><a href="how_to_help.html" class="link">How to Help</a></li>
+            <li><a href="contact.html" class="link">Contact us</a></li>
+          </ul>
+        </div>
+
+        <div class="social-media">
+          <a
+            href="https://www.facebook.com/profile.php?id=61554192970354&mibextid=2JQ9oc"
+          >
+            <i class="bx bxl-facebook-circle"></i
+          ></a>
+          <a href="https://instagram.com/resq_npo?igshid=OGQ5ZDc2ODk2ZA==">
+            <i class="bx bxl-instagram"></i
+          ></a>
+          <a href="https://x.com/resq_npo?t=2AfRIccQ9Qyba6CLwXB1aw&s=09">
+            <i class="bx bxl-twitter"></i
+          ></a>
+        </div>
+
+        <div class="nav-button">
+          <button class="btn white-btn" id="loginBtn" onclick="login()">
+            Sign In
+          </button>
+          <button class="btn" id="registerBtn" onclick="register()">
+            Sign Up
+          </button>
+        </div>
+        <div class="nav-menu-btn">
+          <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+        </div>
+      </nav>
+      <!----------------------------- Form box ----------------------------------->
+      <div class="form-box">
+      <!------------------- Login form -------------------------->
+      <div class="login-container" id="login">
+        <div class="top">
+          <span>
+            Don't have an account?
+            <a href="#" onclick="register()">Sign Up</a>
+          </span>
+          <header>Login</header>
+        </div>
+        <form id="loginForm" action="/login" method="POST">
+          <div class="input-box">
+            <input
+              id="username"
+              type="text"
+              class="input-field"
+              placeholder="Username or Email"
+            />
+            <i class="bx bx-user"></i>
+          </div>
+          <div class="input-box">
+            <input
+              id="password"
+              type="password"
+              class="input-field"
+              placeholder="Password"
+            />
+            <i class="bx bx-lock-alt"></i>
+          </div>
+          <div class="input-box">
+            <button class="submit" type="submit">Sign In</button>
+          </div>
+          <div id="error-message" style="color: red; display: none;"></div>
+        </form>
+        <div class="two-col">
+          <div class="one">
+            <input type="checkbox" id="login-check" />
+            <label for="login-check"> Remember Me</label>
+          </div>
+        </div>
+      </div>
+
+      <!------------------- registration form -------------------------->
+      <div class="register-container" id="register">
+        <div class="top">
+          <span>
+            Have an account? <a href="#" onclick="login()">Login</a>
+          </span>
+          <header>Sign Up</header>
+        </div>
+        <form id="registerForm" action="/register" method="POST">
+          <div class="two-forms">
+            <div class="input-box">
+              <input type="text" name="username" id="registerUsername" class="input-field" placeholder="Username" />
+              <i class="bx bx-user"></i>
+            </div>
+            <div class="input-box">
+              <input type="text" name="firstname" id="firstname" class="input-field" placeholder="Firstname" />
+              <i class="bx bx-user"></i>
+            </div>
+            <div class="input-box">
+              <input type="text" name="lastname" id="lastname" class="input-field" placeholder="Lastname" />
+              <i class="bx bx-user"></i>
+            </div>
+          </div>
+          <div class="input-box">
+            <input type="email" name="email" id="registerEmail" class="input-field" placeholder="Email" />
+            <i class="bx bx-envelope"></i>
+          </div>
+          <div class="input-box">
+            <input type="text" name="phoneNumber" id="phoneNumber" class="input-field" placeholder="Phone Number" />
+            <i class="bx bx-phone"></i> 
+          </div>
+          <div class="input-box">
+            <input type="password" name="password" id="registerPassword" class="input-field" placeholder="Password" />
+            <i class="bx bx-lock-alt"></i>
+          </div>
+          <div class="input-box">
+            <input type="submit" class="submit" value="Register" />
+          </div>
+        </form>
+        <div class="two-col">
+          <div class="two">
+            <input type="checkbox" id="accept-terms" required>
+            <label for="accept-terms"><a href="#" id="terms-link">Terms and Conditions</a></label>
+          </div>
+        </div>
+      </div>
+
+
+        <!-- Terms Modal -->
+          <div id="terms-modal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <h2>Terms and Conditions</h2>
+              <div class="modal-body">
+                <!-- Your Terms and Conditions text goes here -->
+                <p>
+                  By using our website and services, you agree to abide by these Terms and Conditions. 
+                  Your continued use of our site signifies your acceptance of these terms. If you do not agree with any part of these terms, 
+                  you should discontinue use of our services immediately. We reserve the right to modify these Terms and Conditions at any time,
+                   and your continued use of the site following any changes indicates your acceptance of the updated terms.
+                </p>
+                <p>
+                  You agree to use our website and services in compliance with all applicable laws and regulations. 
+                  You are responsible for maintaining the confidentiality of your account information and for all activities that occur under your account. 
+                  You must immediately notify us of any unauthorized use of your account or any other breach of security. We are not liable for any loss or damage arising from your failure to comply with these responsibilities. 
+                </p>
+                <p>
+                  Our website and services are provided "as is" without any warranties, express or implied. We do not guarantee that the site will be available or that it will be error-free.
+                  To the fullest extent permitted by law, we disclaim all liability for any damages arising from the use or inability to use our site, including, but not limited to, direct, indirect, incidental, punitive, and consequential damages. 
+                  Your use of the site is at your own risk.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+
+        </div>
+      </div>
+    </div>
+
+    <div class="background"></div>
+
+    <div class="deliver-message">
+      <h2 class="title">Delivering lasting impact</h2>
+      <p class="intro-title">
+        The ResQ National Team helps people to survive, recover and rebuild
+        their lives.
+      </p>
+
+      <div class="login-list">
+        <ul class="login-facilities">
+          <li class="serve">
+            <img class="serve-pic" src="/images/rescue.png" alt="rescue" />
+            <div class="facilities-align">
+              <h2 class="serve-title">We rescue</h2>
+              <p class="serve-text">
+                People whose lives have been hit by natural disasters.
+              </p>
+            </div>
+          </li>
+
+          <li class="work">
+            <img class="work-pic" src="/images/location.png" alt="location" />
+            <h2 class="location-title">We work</h2>
+            <p class="location-text">
+              In a national level, where people don’t have the support they need
+              to recover from crisis.
+            </p>
+          </li>
+          <li class="respond">
+            <img
+              class="respond-pic"
+              src="/images/telephone.png"
+              alt="telephone"
+            />
+            <h2 class="respond-title">We respond</h2>
+            <p class="respond-text">Within 24 hours to help people in need.</p>
+          </li>
+          <li class="resettle">
+            <img
+              class="resettle-pic"
+              src="/images/resettle.png"
+              alt="resettle"
+            />
+            <h2 class="resettle-title">We resettle</h2>
+            <p class="resettle-text">
+              Refugees and people that lost their home.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container-blog">
+      <div class="blog-section">
+        <div class="blog-title">
+          <h2 class="news">News & Features</h2>
+          <p>
+            Read the latest news and stories from our work across the country.
+          </p>
+        </div>
+        <div class="cards">
+          <div class="card">
+            <div class="image-blog">
+              <img src="/images/karditsa.webp" alt="karditsa" />
+            </div>
+            <div class="blog-content">
+              <h3>Karditsa Disaster</h3>
+              <p>
+                The region of Karditsa in Greece faced a devastating crisis as
+                torrential rains unleashed a severe flood, plunging the area
+                into an unprecedented disaster. The unrelenting downpour led to
+                widespread flooding, overwhelming infrastructure, and displacing
+                numerous residents from their homes. The heavy rain crisis
+                inflicted considerable damage to the local environment, causing
+                landslides and compromising the integrity of critical
+                structures.
+              </p>
+              <a
+                href="https://www.ekathimerini.com/news/1219425/karditsa-residents-climb-on-roofs-to-avoid-flooding/"
+              >
+                Read More</a
+              >
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="image-blog">
+              <img src="/images/Ευβοια.webp" alt="foties euboia" />
+            </div>
+            <div class="blog-content">
+              <h3>Euboea Fire Disaster</h3>
+              <p>
+                In the annals of environmental tragedies, the Euboea fire
+                disaster left an indelible mark on the hearts and landscapes of
+                the Greek island. The conflagration, fueled by scorching
+                temperatures and exacerbated by dry conditions, swept across
+                Euboea, engulfing vast expanses of pristine forests and
+                settlements. The flames, fanned by relentless winds, posed an
+                unprecedented challenge to firefighting forces. Local
+                communities faced harrowing evacuations, witnessing the
+                destruction of homes, habitats, and cherished landscapes. The
+                Euboea fire disaster stands as a poignant reminder of the
+                fragility of ecosystems in the face of climate change and the
+                imperative for proactive measures to mitigate such catastrophes.
+              </p>
+              <a
+                href="https://www.ekathimerini.com/news/1166117/evia-disaster-country-s-biggest-ever-from-single-fire/"
+              >
+                Read More</a
+              >
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="image-blog">
+              <img src="/images/volos.jpg" alt="volos disaster" />
+            </div>
+            <div class="blog-content">
+              <h3>Volos Disaster</h3>
+              <p>
+                In 2023, Volos grappled with a profound natural disaster as
+                relentless rains triggered catastrophic floods, inundating the
+                city and reshaping its landscape. The deluge overwhelmed
+                infrastructure, displacing communities and disrupting daily
+                life. Emergency responders worked tirelessly to aid residents,
+                highlighting the urgent need for resilient urban planning and
+                climate adaptation. The aftermath revealed a city scarred by
+                nature's force, emphasizing the imperative of proactive measures
+                in the face of escalating climate challenges.
+              </p>
+              <a
+                href="https://www.ekathimerini.com/news/1221234/volos-battling-back-to-back-disasters/"
+              >
+                Read More</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="social-media-footer">
+        <a
+          href="https://www.facebook.com/profile.php?id=61554192970354&mibextid=2JQ9oc"
+        >
+          <i class="bx bxl-facebook-circle"></i
+        ></a>
+        <a href="https://instagram.com/resq_npo?igshid=OGQ5ZDc2ODk2ZA==">
+          <i class="bx bxl-instagram"></i
+        ></a>
+        <a href="https://x.com/resq_npo?t=2AfRIccQ9Qyba6CLwXB1aw&s=09">
+          <i class="bx bxl-twitter"></i
+        ></a>
+      </div>
+
+      <div class="contact-info">
+        <p class="phone">Phone: +1 (123) 456-7890</p>
+        <p class="email">Email: resqnpo@gmail.com</p>
+      </div>
+
+      <button class="contact-btn" onclick="location.href='contact.html'">
+        Contact Us
+      </button>
+
+      <div class="footer-buttons">
+        <button class="footer-btn" onclick="login()">Sign In</button>
+        <button class="footer-btn" onclick="register()">Sign Up</button>
+      </div>
+    </footer>
+
+    <script src="javascript/nav.js"></script>
+    <script src="javascript/login.js"></script>
+    <script src="javascript/modals.js"></script>
+    <script src="javascript/rescuer.js"></script>
+    <script src="javascript/rememberme.js"></script>
+    <script src="javascript/citizen.js"></script>
+    <script src="javascript/admin.js"></script>
+
+
+  </body>
+</html>
